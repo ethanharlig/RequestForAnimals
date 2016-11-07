@@ -16,7 +16,7 @@ def send_email(username):
 
     print('Sent: %s\n' % msg)
 
-with open('comein.txt') as f:
+with open('animals.txt') as f:
     pre = f.readlines()
 
 animals = []
