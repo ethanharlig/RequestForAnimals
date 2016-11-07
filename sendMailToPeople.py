@@ -5,9 +5,15 @@ import random
 import datetime
 
 def send_email(username):
-    server.sendmail(username, "2094068179@vtext.com", msg) # random (geoff)
-    server.sendmail(username, "8185994321@mms.att.net", msg) # shayan
-    server.sendmail(username, "9253896304@mms.att.net", msg) # pledge
+    with open('addresses.txt') as f:
+        plain = f.readlines()
+    nums = []
+    for p in plain:
+        nums.append(p.rstrip('\n'))
+
+    for num in nums:
+        server.sendmail(username, num, msg)
+
     print('Sent: %s\n' % msg)
 
 with open('comein.txt') as f:
@@ -32,7 +38,7 @@ while 1:
     my_int = int(random.random() * (len(animals) - 1));
     msg = "Need a cute pic of " + animals[my_int]
 
-    minute_delay = 10 # number of minutes between each text (approx because server.sendmail takes a while)
+    minute_delay = 0 # number of minutes between each text (approx because server.sendmail takes a while)
 
     s = sched.scheduler(time.time, time.sleep(60 * minute_delay))
 
