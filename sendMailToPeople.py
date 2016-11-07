@@ -38,12 +38,8 @@ while 1:
     msg = "Need a cute pic of " + animals[my_int]
 
     send_email(username)
-
     minute_delay = 10 + random.random() * 20 # number of minutes between each text (random between 10 and 30)
-    s = sched.scheduler(time.time, time.sleep(60 * minute_delay))
-
     print (datetime.datetime.now())
-    s.enter(1, 1, None, None)
 
     server.quit()
     time.sleep(60 * minute_delay)
