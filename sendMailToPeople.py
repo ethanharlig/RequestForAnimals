@@ -14,7 +14,7 @@ def send_email(username):
     for num in nums:
         server.sendmail(username, num, msg)
 
-    print('Sent: %s\n' % msg)
+    print('Sent: %s' % msg)
 
 with open('animals.txt') as f:
     pre = f.readlines()
@@ -29,6 +29,8 @@ with open('credentials.txt') as f:
 
 username = content[0].rstrip('\n')
 password = content[1].rstrip('\n')
+
+times = 0
 
 while 1:
     server = smtplib.SMTP('smtp.gmail.com', 587)
@@ -46,6 +48,8 @@ while 1:
 
     print (datetime.datetime.now())
     s.enter(minute_delay, 1, send_email(username), None)
+    times += 1
+    print("Number %s\n" % times)
 
     server.quit()
     time.sleep(60 * minute_delay)
