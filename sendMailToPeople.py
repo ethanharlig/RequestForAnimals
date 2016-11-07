@@ -14,11 +14,13 @@ with open('comein.txt') as f:
     pre = f.readlines()
 
 animals = []
+
 for p in pre:
     animals.append(p.rstrip('\n'))
 
 with open('credentials.txt') as f:
     content = f.readlines()
+
 username = content[0].rstrip('\n')
 password = content[1].rstrip('\n')
 
