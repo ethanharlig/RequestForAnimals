@@ -40,14 +40,12 @@ while 1:
     my_int = int(random.random() * (len(animals) - 1));
     msg = "Need a cute pic of " + animals[my_int]
 
-    minute_delay = 0
-    while minute_delay < 10: # ensure that minute delay is longer than 10 mins
-        minute_delay = random.random() * 30 # number of minutes between each text (random between 10 and 30)
+    send_email(username)
 
-    s = sched.scheduler(time.time, time.sleep)
+    minute_delay = 10 + random.random() * 20 # number of minutes between each text (random between 10 and 30)
 
     print (datetime.datetime.now())
-    s.enter(minute_delay, 1, send_email(username), None)
+
     times += 1
     print("Number %s\n" % times)
 
