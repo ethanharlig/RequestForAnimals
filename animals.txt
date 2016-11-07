@@ -7,7 +7,6 @@ Anteater
 Antelope
 Ape
 Armadillo
-Ass
 Baboon
 Badger
 Barracuda

@@ -46,3 +46,4 @@ while 1:
     s.enter(1, 1, None, None)
 
     server.quit()
+    time.sleep(60 * minute_delay)
