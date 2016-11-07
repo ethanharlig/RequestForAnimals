@@ -14,8 +14,6 @@ def send_email(username):
     for num in nums:
         server.sendmail(username, num, msg)
 
-    print('Sent: %s' % msg)
-
 with open('animals.txt') as f:
     pre = f.readlines()
 
@@ -42,12 +40,13 @@ while 1:
 
     send_email(username)
 
-    minute_delay = 10 + random.random() * 20 # number of minutes between each text (random between 10 and 30)
+    minute_delay = 5 + random.random() * 25 # number of minutes between each text (random between 50 and 30)
 
     print (datetime.datetime.now())
+    print('Sent: %s' % msg)
 
     times += 1
-    print("Number %s\n" % times)
+    print("Number of animals requested: %s\n" % times)
 
     server.quit()
     time.sleep(60 * minute_delay)
