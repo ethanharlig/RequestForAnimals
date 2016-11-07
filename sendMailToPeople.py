@@ -38,7 +38,9 @@ while 1:
     my_int = int(random.random() * (len(animals) - 1));
     msg = "Need a cute pic of " + animals[my_int]
 
-    minute_delay = 0 # number of minutes between each text (approx because server.sendmail takes a while)
+    minute_delay = 0
+    while minute_delay < 10: # ensure that minute delay is longer than 10 mins
+        minute_delay = random.random() * 30 # number of minutes between each text (random between 10 and 30)
 
     s = sched.scheduler(time.time, time.sleep(60 * minute_delay))
 
