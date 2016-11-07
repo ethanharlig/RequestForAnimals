@@ -42,9 +42,10 @@ while 1:
     while minute_delay < 10: # ensure that minute delay is longer than 10 mins
         minute_delay = random.random() * 30 # number of minutes between each text (random between 10 and 30)
 
-    s = sched.scheduler(time.time, time.sleep(60 * minute_delay))
+    s = sched.scheduler(time.time, time.sleep)
 
     print (datetime.datetime.now())
     s.enter(minute_delay, 1, send_email(username), None)
 
     server.quit()
+    time.sleep(60 * minute_delay)
